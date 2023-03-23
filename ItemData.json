@@ -1,0 +1,14 @@
+{
+  "Gun": {
+    "ItemCategory": "Weapon",
+    "ItemAttack": 5,
+    "ItemSpeed": 0.75,
+    "StackSize": 1,
+    "Description": "A normal gun, but useful."
+  },
+  "USB Drive": {
+    "ItemCategory": "Clue",
+    "StackSize": 1,
+    "Description": "Someone lost it. Can be viewed on computer."
+  }
+}

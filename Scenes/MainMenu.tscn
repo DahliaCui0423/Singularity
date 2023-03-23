@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Script/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Import/SingularityLogo.png" type="Texture" id=2]
+[ext_resource path="res://Import/StartBtnActive.png" type="Texture" id=3]
+[ext_resource path="res://Import/StartBtnHover.png" type="Texture" id=4]
+[ext_resource path="res://Import/StartBtnNormal.png" type="Texture" id=5]
+[ext_resource path="res://Import/OptionBtnHover.png" type="Texture" id=6]
+[ext_resource path="res://Import/OptionBtnNormal.png" type="Texture" id=7]
+[ext_resource path="res://Import/OptionBtnActive.png" type="Texture" id=8]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0.0117647, 0.0431373, 0.0392157, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -365.0
+margin_top = -957.0
+margin_right = 1452.0
+margin_bottom = 241.0
+rect_scale = Vector2( 0.399999, 0.399999 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="StartButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -205.5
+margin_top = -400.0
+margin_right = 205.5
+margin_bottom = -284.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="OptionButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -205.5
+margin_top = -230.0
+margin_right = 205.5
+margin_bottom = -114.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 6 )
+expand = true
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+volume_db = 20.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.09
+one_shot = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="OptionButton" to="." method="_on_OptionButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mousehover.ogg-a931d0ccf4ec7585ed254e96010cf05b.oggstr"
+
+[deps]
+
+source_file="res://Import/SFX/mousehover.ogg"
+dest_files=[ "res://.import/mousehover.ogg-a931d0ccf4ec7585ed254e96010cf05b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

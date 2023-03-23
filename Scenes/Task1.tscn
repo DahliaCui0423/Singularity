@@ -1,9 +1,13 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://TileMap/wall&floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Import/CyberPop Vexed/Mid-TownC.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/NPC.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Inventory.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Script/UserInterface.gd" type="Script" id=6]
+[ext_resource path="res://Import/1. Free Hologram Interface Wenrexa/Icons/13.png" type="Texture" id=7]
+[ext_resource path="res://Objects/ItemDrop.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -202,3 +206,38 @@ position = Vector2( 343, 177 )
 position = Vector2( 176, 104 )
 collision_mask = 0
 max_speed = 100
+
+[node name="USB Drive" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 107, 106 )
+itemName = "USB Drive"
+
+[node name="Gun" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 106, 125 )
+itemName = "Gun"
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+script = ExtResource( 6 )
+
+[node name="Inventory" parent="UserInterface" instance=ExtResource( 5 )]
+visible = false
+
+[node name="BagIcon" type="TextureRect" parent="UserInterface"]
+margin_left = 1751.0
+margin_top = 919.0
+margin_right = 1863.0
+margin_bottom = 1031.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Label" type="Label" parent="UserInterface/BagIcon"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.0
+margin_top = -14.0
+margin_right = -33.0
+rect_scale = Vector2( 5, 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "B"
+align = 1
