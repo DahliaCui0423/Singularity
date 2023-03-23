@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://TileMap/wall&floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Import/CyberPop Vexed/Mid-TownC.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Script/UserInterface.gd" type="Script" id=6]
 [ext_resource path="res://Import/1. Free Hologram Interface Wenrexa/Icons/13.png" type="Texture" id=7]
 [ext_resource path="res://Objects/ItemDrop.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Import/SingularityInstruction.png" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -179,6 +180,8 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 32, 0, 32 )
 } ]
 7/z_index = 0
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+
 [node name="Task1" type="Node2D"]
 
 [node name="walls&floors" type="TileMap" parent="."]
@@ -206,6 +209,9 @@ position = Vector2( 343, 177 )
 position = Vector2( 176, 104 )
 collision_mask = 0
 max_speed = 100
+
+[node name="AnimationTree" parent="YSort/Player" index="3"]
+parameters/playback = SubResource( 9 )
 
 [node name="USB Drive" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 107, 106 )
@@ -241,3 +247,15 @@ rect_scale = Vector2( 5, 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "B"
 align = 1
+
+[node name="Instruction" type="TextureRect" parent="UserInterface"]
+visible = false
+margin_left = 813.0
+margin_top = 876.0
+margin_right = 1139.0
+margin_bottom = 929.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 1
+
+[editable path="YSort/Player"]

@@ -1,6 +1,6 @@
 extends Area2D
 
-
+onready var instruction = get_node("../../../UserInterface/Instruction")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -18,7 +18,9 @@ func _ready():
 
 func _on_PickUpZone_body_entered(body):
 	items_in_range[body] = body
+	instruction.visible = true
 
 func _on_PickUpZone_body_exited(body):
 	if items_in_range.has(body):
 		items_in_range.erase(body)
+	instruction.visible = false

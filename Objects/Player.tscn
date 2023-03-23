@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Import/character sprite/Horror City - Sprite Pack 1/HC_Humans1A.png" type="Texture" id=1]
 [ext_resource path="res://Script/Player.gd" type="Script" id=2]
-[ext_resource path="res://Objects/PickUpZone.gd" type="Script" id=3]
+[ext_resource path="res://Script/PickUpZone.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
