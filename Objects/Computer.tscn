@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Import/TrashIcon.png" type="Texture" id=1]
 [ext_resource path="res://Import/ComputerIcon.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Import/fileIcon.png" type="Texture" id=14]
 [ext_resource path="res://Objects/Disk.gd" type="Script" id=15]
 [ext_resource path="res://Import/ModernXP-31-Filetype-Word-icon.png" type="Texture" id=16]
+[ext_resource path="res://Import/1. Free Hologram Interface Wenrexa/Icons/21.png" type="Texture" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 27
@@ -288,7 +289,7 @@ margin_bottom = 132.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "2025.01.23
-8:00 Waiting for Mr.K at the kitchen"
+8:00 Waiting for Mr.K at the LAB"
 
 [node name="WordFileCloseButton" type="TextureButton" parent="WordFile"]
 margin_left = 540.0
@@ -315,6 +316,14 @@ margin_bottom = 92.0
 texture_normal = ExtResource( 8 )
 expand = true
 
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 1785.0
+margin_top = 964.0
+margin_right = 1866.0
+margin_bottom = 1045.0
+texture_normal = ExtResource( 17 )
+expand = true
+
 [connection signal="pressed" from="Computer" to="." method="_on_Computer_pressed"]
 [connection signal="pressed" from="TrashCan" to="." method="_on_TrashCan_pressed"]
 [connection signal="pressed" from="GodotButton" to="." method="_on_GodotButton_pressed"]
@@ -328,3 +337,4 @@ expand = true
 [connection signal="pressed" from="PasswordInput/PwdCloseButton" to="PasswordInput" method="_on_PwdCloseButton_pressed"]
 [connection signal="pressed" from="WordFile/WordFileCloseButton" to="." method="_on_WordFileCloseButton_pressed"]
 [connection signal="pressed" from="TrashPanel/TrashCloseButton" to="." method="_on_TrashCloseButton_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]

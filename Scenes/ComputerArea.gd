@@ -30,3 +30,4 @@ func _on_ComputerArea_body_exited(body):
 	$"../UserInterface/Instruction2".visible = false
 	interact = false
 	$"../UserInterface/Computer".visible = false
+

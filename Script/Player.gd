@@ -5,6 +5,11 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
+const bulletPath = preload("res://Objects/Bullet.tscn")
+
+var bvelocity = Vector2.ZERO
+var bdegree = 45;
+
 enum {
 	MOVE,
 	ATTACK
@@ -26,6 +31,8 @@ func _physics_process(delta):
 		ATTACK:
 			pass
 			#state_attack(delta)
+	if Input.is_action_just_pressed("ui_accept"):
+		shoot()
 
 func state_move(delta):
 	var input_vector = Vector2.ZERO
@@ -54,7 +61,31 @@ func _input(event):
 			var pickup_item = $PickUpZone.items_in_range.values()[0]
 			pickup_item.pick_up_item(self)
 			$PickUpZone.items_in_range.erase(pickup_item)
+			$"../../UserInterface/Instruction".visible = false
 
+func shoot():
+	for item in PlayerInventory.inventory:
+		if(PlayerInventory.inventory[item][0] == "Gun"):
+			var bullet = bulletPath.instance()
+			get_parent().add_child(bullet)
+			bullet.global_position = $bulletPosition.global_position
+			bullet.velocity = bvelocity
+			bullet.rotation_degrees = bdegree
+
+func up():
+	bvelocity = Vector2(0, -1)
+	bdegree = -90
+func down():
+	bvelocity = Vector2(0, 1)
+	bdegree = 90
+
+func left():
+	bvelocity = Vector2(-1, 0)
+	bdegree = -180
+
+func right():
+	bvelocity = Vector2(1, 0)
+	bdegree = 0
 
 
 

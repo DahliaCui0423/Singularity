@@ -53,3 +53,7 @@ func _on_TrashCan_pressed():
 
 func _on_TrashCloseButton_pressed():
 	$TrashPanel.visible = false
+
+
+func _on_TextureButton_pressed():
+	self.visible = false
