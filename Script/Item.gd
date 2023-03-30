@@ -2,12 +2,14 @@ extends Node2D
 
 var itemName
 var itemQuantity
+var itemDescription
 
 func _ready():
 	itemName = "USB Drive"
 	$TextureRect.texture = load("res://Import/ItemIcons/"+itemName+".png")
 	var stackSize = int(JsonData.itemData[itemName]["StackSize"])
 	itemQuantity = 1
+	itemDescription = ""
 	
 	if stackSize == 1 || itemQuantity == 1:
 		$TextureRect/Label.visible = false
@@ -31,7 +33,7 @@ func set_item(name, quantity):
 	itemName = name
 	itemQuantity = quantity
 	$TextureRect.texture = load("res://Import/ItemIcons/"+itemName+".png")
-	
+	itemDescription = JsonData.itemData[itemName]["Description"]
 	var stack_size = int(JsonData.itemData[itemName]["StackSize"])
 	if stack_size == 1 || itemQuantity == 1:
 		$TextureRect/Label.visible = false

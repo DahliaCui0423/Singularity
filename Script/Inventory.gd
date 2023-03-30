@@ -1,8 +1,11 @@
 extends Node2D
 
 const SlotClass = preload("res://Script/Slot.gd")
+const ItemClass = preload("res://Script/Item.gd")
 onready var inventorySlots = $GridContainer
 var holdingItem = null
+onready var itemShowName = $ItemName
+onready var itemDescription = $ItemDescription
 
 func _ready():
 	var slots = inventorySlots.get_children()
@@ -31,6 +34,11 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 						left_click_same_item(slot)
 			elif slot.item:
 				left_click_not_holding(slot)
+	if event is InputEventMouseMotion:
+		if holdingItem != null:
+			show_item_des(holdingItem)
+		elif slot.item:
+			show_item_des(slot.item)
 
 func _input(event):
 	if holdingItem:
@@ -68,3 +76,7 @@ func left_click_not_holding(slot: SlotClass):
 	holdingItem = slot.item
 	slot.pick_from_slot()
 	holdingItem.global_position = get_global_mouse_position()
+
+func show_item_des(item: ItemClass):
+	itemShowName.text = item.itemName
+	itemDescription.text = item.itemDescription

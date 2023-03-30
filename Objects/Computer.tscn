@@ -1,0 +1,330 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Import/TrashIcon.png" type="Texture" id=1]
+[ext_resource path="res://Import/ComputerIcon.png" type="Texture" id=2]
+[ext_resource path="res://Import/5vqa82.webp" type="Texture" id=3]
+[ext_resource path="res://Objects/Computer.gd" type="Script" id=4]
+[ext_resource path="res://Import/windowPanel.png" type="Texture" id=5]
+[ext_resource path="res://Import/Fonts/Play-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Import/diskIcon.png" type="Texture" id=7]
+[ext_resource path="res://Import/CloseButtonIcon.png" type="Texture" id=8]
+[ext_resource path="res://Objects/TextEdit.gd" type="Script" id=9]
+[ext_resource path="res://Import/Fonts/RobotoMono-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://icon.png" type="Texture" id=11]
+[ext_resource path="res://Import/OkButton.png" type="Texture" id=12]
+[ext_resource path="res://Objects/PasswordInput.gd" type="Script" id=13]
+[ext_resource path="res://Import/fileIcon.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Disk.gd" type="Script" id=15]
+[ext_resource path="res://Import/ModernXP-31-Filetype-Word-icon.png" type="Texture" id=16]
+
+[sub_resource type="DynamicFont" id=1]
+size = 27
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 29
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 38
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 25
+font_data = ExtResource( 6 )
+
+[node name="Computer" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="Computer" type="TextureButton" parent="."]
+margin_left = 36.0
+margin_top = 161.0
+margin_right = 129.0
+margin_bottom = 241.0
+texture_normal = ExtResource( 2 )
+expand = true
+
+[node name="TrashCan" type="TextureButton" parent="."]
+margin_left = 44.0
+margin_top = 26.0
+margin_right = 118.0
+margin_bottom = 121.0
+texture_normal = ExtResource( 1 )
+expand = true
+
+[node name="GodotButton" type="TextureButton" parent="."]
+visible = false
+margin_left = 46.0
+margin_top = 292.0
+margin_right = 135.0
+margin_bottom = 381.0
+texture_normal = ExtResource( 11 )
+expand = true
+
+[node name="windows" type="TextureRect" parent="."]
+visible = false
+margin_left = 418.0
+margin_top = 291.0
+margin_right = 1584.0
+margin_bottom = 765.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="DiskButton" type="TextureButton" parent="windows"]
+visible = false
+margin_left = 82.0
+margin_top = 151.0
+margin_right = 229.0
+margin_bottom = 259.0
+texture_normal = ExtResource( 7 )
+expand = true
+
+[node name="Label" type="Label" parent="windows"]
+visible = false
+margin_left = 86.0
+margin_top = 263.0
+margin_right = 231.0
+margin_bottom = 306.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "E: Rachel"
+
+[node name="CloseButton" type="TextureButton" parent="windows"]
+margin_left = 1066.0
+margin_top = 22.0
+margin_right = 1143.0
+margin_bottom = 94.0
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="Disk" type="TextureRect" parent="."]
+visible = false
+margin_left = 467.0
+margin_top = 407.0
+margin_right = 1633.0
+margin_bottom = 881.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+script = ExtResource( 15 )
+
+[node name="FileButton" type="TextureButton" parent="Disk"]
+margin_left = 82.0
+margin_top = 134.0
+margin_right = 229.0
+margin_bottom = 259.0
+texture_normal = ExtResource( 14 )
+expand = true
+
+[node name="FileLabel" type="Label" parent="Disk"]
+margin_left = 86.0
+margin_top = 263.0
+margin_right = 231.0
+margin_bottom = 306.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Schedule"
+
+[node name="FileButton2" type="TextureButton" parent="Disk"]
+visible = false
+margin_left = 89.0
+margin_top = 134.0
+margin_right = 206.0
+margin_bottom = 259.0
+texture_normal = ExtResource( 16 )
+expand = true
+
+[node name="FileLabel2" type="Label" parent="Disk"]
+visible = false
+margin_left = 72.0
+margin_top = 258.0
+margin_right = 230.0
+margin_bottom = 301.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Schedule.doc"
+
+[node name="DiskCloseButton" type="TextureButton" parent="Disk"]
+margin_left = 1066.0
+margin_top = 22.0
+margin_right = 1143.0
+margin_bottom = 94.0
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="TextEdit" type="TextEdit" parent="."]
+visible = false
+margin_left = 363.0
+margin_top = 131.0
+margin_right = 1515.0
+margin_bottom = 965.0
+custom_colors/number_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "extends PassWords
+
+#Do not change other codes!
+
+onready var _pwd = preload(\"res://user/password\")
+onready var username = $Label.text
+onready var pwd_input = $PwdLabel.text
+var pwd
+
+func _ready():
+	pwd = decrpt_user_password(username, _pwd)
+	reset_user_password()
+
+func reset_user_password():
+	if(pwd_input == pwd):
+		pwd = \"\"
+	encrypt_user_password(username, _pwd)"
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+wrap_enabled = true
+script = ExtResource( 9 )
+
+[node name="CodingCloseButton" type="TextureButton" parent="TextEdit"]
+margin_left = 1111.0
+margin_top = 4.0
+margin_right = 1151.0
+margin_bottom = 44.0
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="PasswordInput" type="TextureRect" parent="."]
+visible = false
+margin_left = 545.0
+margin_top = 438.0
+margin_right = 1665.0
+margin_bottom = 925.0
+texture = ExtResource( 5 )
+expand = true
+script = ExtResource( 13 )
+
+[node name="ColorRect" type="ColorRect" parent="PasswordInput"]
+margin_left = 16.0
+margin_top = 109.0
+margin_right = 1105.0
+margin_bottom = 472.0
+color = Color( 0.92549, 0.913725, 0.847059, 1 )
+
+[node name="PasswordInput" type="TextEdit" parent="PasswordInput"]
+margin_left = 485.0
+margin_top = 214.0
+margin_right = 883.0
+margin_bottom = 262.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/background_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+syntax_highlighting = true
+
+[node name="WarningMsg" type="Label" parent="PasswordInput"]
+visible = false
+margin_left = 348.0
+margin_top = 296.0
+margin_right = 772.0
+margin_bottom = 341.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Password is incorrect!"
+align = 1
+
+[node name="PasswordLabel" type="Label" parent="PasswordInput"]
+margin_left = 266.0
+margin_top = 214.0
+margin_right = 441.0
+margin_bottom = 259.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Password:"
+
+[node name="Okbutton" type="TextureButton" parent="PasswordInput"]
+margin_left = 455.0
+margin_top = 371.0
+margin_right = 664.0
+margin_bottom = 431.0
+texture_normal = ExtResource( 12 )
+expand = true
+
+[node name="PwdCloseButton" type="TextureButton" parent="PasswordInput"]
+margin_left = 1024.0
+margin_top = 24.0
+margin_right = 1099.0
+margin_bottom = 97.0
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="WordFile" type="TextureRect" parent="."]
+visible = false
+margin_left = 858.0
+margin_top = 543.0
+margin_right = 1450.0
+margin_bottom = 815.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="WordFile"]
+margin_left = 21.0
+margin_top = 69.0
+margin_right = 422.0
+margin_bottom = 132.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "2025.01.23
+8:00 Waiting for Mr.K at the kitchen"
+
+[node name="WordFileCloseButton" type="TextureButton" parent="WordFile"]
+margin_left = 540.0
+margin_top = 14.0
+margin_right = 580.0
+margin_bottom = 54.0
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="TrashPanel" type="TextureRect" parent="."]
+visible = false
+margin_left = 439.0
+margin_top = 283.0
+margin_right = 1363.0
+margin_bottom = 744.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="TrashCloseButton" type="TextureButton" parent="TrashPanel"]
+margin_left = 841.0
+margin_top = 22.0
+margin_right = 911.0
+margin_bottom = 92.0
+texture_normal = ExtResource( 8 )
+expand = true
+
+[connection signal="pressed" from="Computer" to="." method="_on_Computer_pressed"]
+[connection signal="pressed" from="TrashCan" to="." method="_on_TrashCan_pressed"]
+[connection signal="pressed" from="GodotButton" to="." method="_on_GodotButton_pressed"]
+[connection signal="pressed" from="windows/DiskButton" to="." method="_on_DiskButton_pressed"]
+[connection signal="pressed" from="windows/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="Disk/FileButton" to="Disk" method="_on_FileButton_pressed"]
+[connection signal="pressed" from="Disk/FileButton2" to="." method="_on_FileButton2_pressed"]
+[connection signal="pressed" from="Disk/DiskCloseButton" to="." method="_on_DiskCloseButton_pressed"]
+[connection signal="pressed" from="TextEdit/CodingCloseButton" to="TextEdit" method="_on_CodingCloseButton_pressed"]
+[connection signal="pressed" from="PasswordInput/Okbutton" to="PasswordInput" method="_on_Okbutton_pressed"]
+[connection signal="pressed" from="PasswordInput/PwdCloseButton" to="PasswordInput" method="_on_PwdCloseButton_pressed"]
+[connection signal="pressed" from="WordFile/WordFileCloseButton" to="." method="_on_WordFileCloseButton_pressed"]
+[connection signal="pressed" from="TrashPanel/TrashCloseButton" to="." method="_on_TrashCloseButton_pressed"]

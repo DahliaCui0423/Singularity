@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Import/1. Free Hologram Interface Wenrexa/Card X3/Card X5.png" type="Texture" id=1]
 [ext_resource path="res://Import/1. Free Hologram Interface Wenrexa/Card X1/Card X1.png" type="Texture" id=2]
@@ -9,6 +9,45 @@
 [ext_resource path="res://Script/MainScene.gd" type="Script" id=7]
 [ext_resource path="res://Import/1. Free Hologram Interface Wenrexa/Icons/03.png" type="Texture" id=8]
 [ext_resource path="res://Script/TimeLabel.gd" type="Script" id=9]
+[ext_resource path="res://Import/Fonts/Play-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Import/1. Free Hologram Interface Wenrexa/Icons/24.png" type="Texture" id=11]
+[ext_resource path="res://Import/1. Free Hologram Interface Wenrexa/Icons/23.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 51
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 43
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 56
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 66
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 105
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 61
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 7
+font_data = ExtResource( 10 )
 
 [node name="MainScene" type="CanvasLayer"]
 script = ExtResource( 7 )
@@ -20,6 +59,7 @@ texture = ExtResource( 1 )
 expand = true
 
 [node name="TaskPanel" type="TextureRect" parent="."]
+visible = false
 margin_left = 106.0
 margin_top = 118.0
 margin_right = 511.0
@@ -32,18 +72,18 @@ margin_left = 94.0
 margin_top = 144.0
 margin_right = 206.0
 margin_bottom = 158.0
-rect_scale = Vector2( 2, 2 )
 custom_colors/font_outline_modulate = Color( 0.47451, 0.960784, 0.854902, 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Time: 2025.01.23"
 align = 1
 
 [node name="Task#0612" type="Label" parent="TaskPanel"]
-margin_left = 60.0
-margin_top = 33.0
-margin_right = 116.0
-margin_bottom = 47.0
-rect_scale = Vector2( 5, 5 )
+margin_left = 123.0
+margin_top = 32.0
+margin_right = 273.0
+margin_bottom = 92.0
 custom_colors/font_outline_modulate = Color( 0.47451, 0.960784, 0.854902, 1 )
+custom_fonts/font = SubResource( 6 )
 text = "#0612"
 align = 1
 
@@ -59,12 +99,12 @@ texture_disabled = ExtResource( 4 )
 expand = true
 
 [node name="detail" type="Label" parent="TaskPanel/DetailButton"]
-margin_left = 21.0
-margin_top = 18.0
-margin_right = 82.0
-margin_bottom = 32.0
-rect_scale = Vector2( 4, 4 )
+margin_left = 78.0
+margin_top = 17.0
+margin_right = 213.0
+margin_bottom = 68.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 7 )
 text = "Details"
 align = 1
 
@@ -93,18 +133,18 @@ margin_left = 149.0
 margin_top = 131.0
 margin_right = 261.0
 margin_bottom = 145.0
-rect_scale = Vector2( 3, 3 )
 custom_colors/font_outline_modulate = Color( 0.47451, 0.960784, 0.854902, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Time: 2025.01.23"
 align = 1
 
 [node name="Task#0612" type="Label" parent="Taskdetail"]
-margin_left = 612.0
-margin_top = 32.0
-margin_right = 668.0
-margin_bottom = 46.0
-rect_scale = Vector2( 5, 5 )
+margin_left = 628.0
+margin_top = 23.0
+margin_right = 813.0
+margin_bottom = 98.0
 custom_colors/font_outline_modulate = Color( 0.47451, 0.960784, 0.854902, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "#0612"
 align = 1
 
@@ -120,12 +160,12 @@ texture_disabled = ExtResource( 4 )
 expand = true
 
 [node name="Start" type="Label" parent="Taskdetail/TextureButton"]
-margin_left = 47.0
-margin_top = 18.0
-margin_right = 108.0
-margin_bottom = 32.0
-rect_scale = Vector2( 5, 5 )
+margin_left = 46.0
+margin_top = 15.0
+margin_right = 353.0
+margin_bottom = 92.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Start Task"
 align = 1
 
@@ -151,15 +191,151 @@ expand = true
 [node name="Timer" type="Timer" parent="."]
 
 [node name="TimeLabel" type="Label" parent="."]
+visible = false
 margin_left = 1223.0
 margin_top = 87.0
 margin_right = 1299.0
 margin_bottom = 101.0
-rect_scale = Vector2( 8, 8 )
 custom_colors/font_outline_modulate = Color( 0.47451, 0.960784, 0.854902, 1 )
+custom_fonts/font = SubResource( 3 )
 text = "00:00:00:00"
 script = ExtResource( 9 )
+
+[node name="HomeButton" type="TextureButton" parent="."]
+visible = false
+margin_left = 1565.0
+margin_top = 926.0
+margin_right = 1649.0
+margin_bottom = 1011.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="HomeButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = -27.5
+margin_right = 30.0
+margin_bottom = 28.5
+texture = ExtResource( 12 )
+expand = true
+
+[node name="SettingButton" type="TextureButton" parent="."]
+visible = false
+margin_left = 1693.0
+margin_top = 926.0
+margin_right = 1777.0
+margin_bottom = 1011.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="SettingButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = -27.5
+margin_right = 30.0
+margin_bottom = 28.5
+texture = ExtResource( 11 )
+expand = true
+
+[node name="Loading" type="Label" parent="."]
+margin_left = 851.0
+margin_top = 117.0
+margin_right = 1119.0
+margin_bottom = 189.0
+custom_fonts/font = SubResource( 9 )
+text = "Loading..."
+
+[node name="Label" type="Label" parent="."]
+margin_left = 795.0
+margin_top = 252.0
+margin_right = 1139.0
+margin_bottom = 1317.0
+custom_fonts/font = SubResource( 10 )
+text = "extends Node2D
+const SlotClass = preload(\"res://Script/Slot.gd\")const ItemClass = preload(\"res://Script/Item.gd\")
+onready var inventorySlots = $GridContainervar holdingItem = null
+onready var itemShowName = $ItemNameonready var itemDescription = $ItemDescription
+func _ready():
+	var slots = inventorySlots.get_children()for i in range(slots.size()):
+		slots[i].connect(\"gui_input\", self, \"slot_gui_input\", [slots[i]])
+		slots[i].slot_index = i
+	initialize_inventory()
+func initialize_inventory():
+	var slots = inventorySlots.get_children()
+	for i in range(slots.size()):if PlayerInventory.inventory.has(i):
+			slots[i].initialize_item(PlayerInventory.inventory[i][0], PlayerInventory.inventory[i])
+func slot_gui_input(event: InputEvent, slot: SlotClass):if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT && event.pressed:
+			if holdingItem != null:
+				if !slot.item: # Place holding item to slot
+					left_click_empty_slot(slot)
+				else: # Swap holding item with item in slot
+					if holdingItem.itemName != slot.item.itemName:
+						left_click_different_item(event, slot)
+					else:
+						left_click_same_item(slot)
+			elif slot.item:
+				left_click_not_holding(slot)if event is InputEventMouseMotion:
+		if holdingItem != null:
+			show_item_des(holdingItem)
+		elif slot.item:
+			show_item_des(slot.item)
+func _input(event):
+	if holdingItem:holdingItem.global_position = get_global_mouse_position()
+func left_click_empty_slot(slot: SlotClass):
+	PlayerInventory.add_item_to_empty_slot(holdingItem, slot)
+	slot.put_into_slot(holdingItem)
+	holdingItem = null
+
+func left_click_different_item(event: InputEvent, slot: SlotClass):
+	PlayerInventory.remove_item(slot)
+	PlayerInventory.add_item_to_empty_slot(holdingItem, slot)
+	var temp = slot.item
+	slot.pick_from_slot()
+	temp.global_position = event.global_position
+	slot.put_into_slot(holdingItem)
+	holdingItem = temp
+
+func left_click_same_item(slot: SlotClass):
+	var stack_size = int(JsonData.itemData[slot.item.itemName][\"StackSize\"])
+	var able_to_add = stack_size - slot.item.itemQuantity
+	if able_to_add >= holdingItem.itemQuantity:
+		PlayerInventory.add_item_quantity(slot, holdingItem.itemQuantity)
+		slot.item.add_item_quantity(holdingItem.itemQuantity)
+		holdingItem.queue_free()
+		holdingItem = null
+	else:
+		PlayerInventory.add_item_quantity(slot, able_to_add)
+		slot.item.add_item_quantity(able_to_add)
+		holdingItem.decrease_item_quantity(able_to_add)
+
+func left_click_not_holding(slot: SlotClass):
+	PlayerInventory.remove_item(slot)
+	holdingItem = slot.item
+	slot.pick_from_slot()
+	holdingItem.global_position = get_global_mouse_position()
+/* System load finished! */"
+clip_text = true
+
+[node name="Tween" type="Tween" parent="Label"]
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [connection signal="pressed" from="TaskPanel/DetailButton" to="." method="_on_DetailButton_pressed"]
 [connection signal="pressed" from="Taskdetail/TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="Taskdetail/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="HomeButton" to="." method="_on_HomeButton_pressed"]

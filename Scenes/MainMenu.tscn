@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Script/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Import/SingularityLogo.png" type="Texture" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Import/OptionBtnHover.png" type="Texture" id=6]
 [ext_resource path="res://Import/OptionBtnNormal.png" type="Texture" id=7]
 [ext_resource path="res://Import/OptionBtnActive.png" type="Texture" id=8]
+[ext_resource path="res://Import/IS_StartButtonNormal.png" type="Texture" id=9]
+[ext_resource path="res://Import/IS_StartButtonHover.png" type="Texture" id=10]
+[ext_resource path="res://Import/IS_StartButtonPressed2.png" type="Texture" id=11]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -59,6 +62,20 @@ texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 6 )
 expand = true
 
+[node name="StartButton2" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 359.0
+margin_top = -396.0
+margin_right = 770.0
+margin_bottom = -280.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 10 )
+expand = true
+
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 volume_db = 20.0
 
@@ -68,4 +85,5 @@ one_shot = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="OptionButton" to="." method="_on_OptionButton_pressed"]
+[connection signal="pressed" from="StartButton2" to="." method="_on_StartButton_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
