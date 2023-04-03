@@ -1,0 +1,185 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 8
+syntax_version = 2
+raw_text = "~ start
+
+Rechael: Hello.
+- Are you waiting for Mr K?
+	Rechael: Yes, how do you know?
+	- I will explain to you later. I think Mr K is suspicious, you should leave with me right now.
+			Rechael: Sure.
+			do emit(\"startRescue\") 
+	- I found your USB disk. I think Mr K is suspicious, you should leave with me right now.
+			Rechael: OK.(I remember I set password to the disk, weird...)
+			do emit(\"startRescue\") 
+=> END
+
+~ _end
+Rechael: Oh, Thank you so much. I feel safe now.
+do emit(\"endRescue\")
+
+=> END
+
+
+~ abort
+=> END"
+errors = [  ]
+titles = {
+"_end": "14",
+"abort": "21",
+"start": "2"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "start",
+"type": "title"
+},
+"10": {
+"mutation": {
+"expression": [ {
+"function": "emit",
+"type": "function",
+"value": [ [ {
+"type": "string",
+"value": "startRescue"
+} ] ]
+} ]
+},
+"next_id": "11",
+"parent_id": "8",
+"type": "mutation"
+},
+"11": {
+"next_id": "end",
+"type": "goto"
+},
+"13": {
+"next_id": "14",
+"text": "_end",
+"type": "title"
+},
+"14": {
+"character": "Rechael",
+"character_replacements": [  ],
+"next_id": "15",
+"replacements": [  ],
+"text": "Oh, Thank you so much. I feel safe now.",
+"translation_key": "Oh, Thank you so much. I feel safe now.",
+"type": "dialogue"
+},
+"15": {
+"mutation": {
+"expression": [ {
+"function": "emit",
+"type": "function",
+"value": [ [ {
+"type": "string",
+"value": "endRescue"
+} ] ]
+} ]
+},
+"next_id": "17",
+"type": "mutation"
+},
+"17": {
+"next_id": "end",
+"type": "goto"
+},
+"2": {
+"character": "Rechael",
+"character_replacements": [  ],
+"next_id": "3",
+"replacements": [  ],
+"text": "Hello.",
+"translation_key": "Hello.",
+"type": "dialogue"
+},
+"20": {
+"next_id": "21",
+"text": "abort",
+"type": "title"
+},
+"21": {
+"next_id": "end",
+"type": "goto"
+},
+"3": {
+"next_id": "4",
+"next_id_after": "11",
+"replacements": [  ],
+"responses": PoolStringArray( "3" ),
+"text": "Are you waiting for Mr K?",
+"translation_key": "Are you waiting for Mr K?",
+"type": "response"
+},
+"4": {
+"character": "Rechael",
+"character_replacements": [  ],
+"next_id": "5",
+"parent_id": "3",
+"replacements": [  ],
+"text": "Yes, how do you know?",
+"translation_key": "Yes, how do you know?",
+"type": "dialogue"
+},
+"5": {
+"next_id": "6",
+"next_id_after": "11",
+"parent_id": "3",
+"replacements": [  ],
+"responses": PoolStringArray( "5", "8" ),
+"text": "I will explain to you later. I think Mr K is suspicious, you should leave with me right now.",
+"translation_key": "I will explain to you later. I think Mr K is suspicious, you should leave with me right now.",
+"type": "response"
+},
+"6": {
+"character": "Rechael",
+"character_replacements": [  ],
+"next_id": "7",
+"parent_id": "5",
+"replacements": [  ],
+"text": "Sure.",
+"translation_key": "Sure.",
+"type": "dialogue"
+},
+"7": {
+"mutation": {
+"expression": [ {
+"function": "emit",
+"type": "function",
+"value": [ [ {
+"type": "string",
+"value": "startRescue"
+} ] ]
+} ]
+},
+"next_id": "11",
+"parent_id": "5",
+"type": "mutation"
+},
+"8": {
+"next_id": "9",
+"next_id_after": "11",
+"parent_id": "3",
+"replacements": [  ],
+"text": "I found your USB disk. I think Mr K is suspicious, you should leave with me right now.",
+"translation_key": "I found your USB disk. I think Mr K is suspicious, you should leave with me right now.",
+"type": "response"
+},
+"9": {
+"character": "Rechael",
+"character_replacements": [  ],
+"next_id": "10",
+"parent_id": "8",
+"replacements": [  ],
+"text": "OK.(I remember I set password to the disk, weird...)",
+"translation_key": "OK.(I remember I set password to the disk, weird...)",
+"type": "dialogue"
+}
+}

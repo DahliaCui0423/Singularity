@@ -3,7 +3,9 @@ extends Node
 
 signal dialogue_started
 signal dialogue_finished
-
+signal exit #AB
+signal abort #AB
+signal event(name) #AB
 
 const DialogueResource = preload("res://addons/dialogue_manager/dialogue_resource.gd")
 const DialogueConstants = preload("res://addons/dialogue_manager/constants.gd")
@@ -23,6 +25,18 @@ var is_dialogue_running := false setget set_is_dialogue_running
 var _node_properties: Array = []
 var _extra_game_states: Array = []
 var _resource_cache: Array = []
+
+
+func exit():
+	emit_signal("exit")
+
+
+func quickExit():
+	emit_signal("abort")
+	
+
+func quickEvent(name: String):
+	emit_signal("event", name)
 
 
 func _ready() -> void:

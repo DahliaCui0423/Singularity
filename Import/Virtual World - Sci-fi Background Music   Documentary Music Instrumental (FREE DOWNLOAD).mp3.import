@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Virtual World - Sci-fi Background Music   Documentary Music Instrumental (FREE DOWNLOAD).mp3-7c5f620477ea243598a4b54250e98b7a.mp3str"
+
+[deps]
+
+source_file="res://Import/Virtual World - Sci-fi Background Music   Documentary Music Instrumental (FREE DOWNLOAD).mp3"
+dest_files=[ "res://.import/Virtual World - Sci-fi Background Music   Documentary Music Instrumental (FREE DOWNLOAD).mp3-7c5f620477ea243598a4b54250e98b7a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

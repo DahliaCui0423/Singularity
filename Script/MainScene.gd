@@ -23,7 +23,6 @@ func _process(delta):
 		$Loading.visible = false
 		task.visible = true
 		$HomeButton.visible = true
-		$SettingButton.visible = true
 		$TimeLabel.visible = true
 
 

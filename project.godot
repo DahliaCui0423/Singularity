@@ -29,6 +29,8 @@ config/icon="res://icon.png"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 JsonData="*res://Script/JSONData.gd"
 PlayerInventory="*res://Script/PlayerInventory.gd"
+GlobalMusic="*res://Objects/GlobalMusic.tscn"
+Global="*res://Script/Global.gd"
 
 [display]
 

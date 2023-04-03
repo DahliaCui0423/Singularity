@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://TileMap/wall&floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Import/CyberPop Vexed/Mid-TownC.png" type="Texture" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://Scenes/ComputerArea.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/DoorArea.gd" type="Script" id=13]
 [ext_resource path="res://Import/SingularityComputerInstruc.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Enemy.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Objects/Rechael.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Task1.gd" type="Script" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -449,6 +452,8 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 64, 0, 64 )
 } ]
 18/z_index = 0
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=24]
+
 [sub_resource type="AnimationNodeStateMachinePlayback" id=9]
 
 [sub_resource type="CapsuleShape2D" id=16]
@@ -457,8 +462,12 @@ height = 0.0
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 48.5, 13.5 )
 
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 87.5, 7 )
+
 [node name="Task1" type="Node2D"]
 position = Vector2( 2, -3 )
+script = ExtResource( 17 )
 
 [node name="walls&floors" type="TileMap" parent="."]
 position = Vector2( 63, 496 )
@@ -485,6 +494,19 @@ tile_data = PoolIntArray( -262110, 18, 0, -262108, 18, 0, -262106, 18, 0, -26210
 [node name="NPC" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 405, 671 )
 
+[node name="Rechael" parent="YSort" instance=ExtResource( 16 )]
+visible = false
+position = Vector2( 576, 729 )
+
+[node name="AnimationTree" parent="YSort/Rechael" index="3"]
+parameters/playback = SubResource( 24 )
+
+[node name="CollisionShape2D" parent="YSort/Rechael/Area2D" index="0"]
+disabled = true
+
+[node name="CollisionShape2D" parent="YSort/Rechael/SafeZoneDetect" index="0"]
+disabled = true
+
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 238, 598 )
 collision_mask = 0
@@ -500,6 +522,9 @@ itemName = "USB Drive"
 [node name="Gun" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 377, 554 )
 itemName = "Gun"
+
+[node name="MrK" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 788, 524 )
 
 [node name="DoorArea" type="Node2D" parent="."]
 position = Vector2( 0, 3 )
@@ -563,6 +588,9 @@ position = Vector2( 632, 565 )
 [node name="ComputerRoom" type="Position2D" parent="."]
 position = Vector2( 487, 563 )
 
+[node name="NPCrescueEnd2" type="Position2D" parent="."]
+position = Vector2( 153, 588 )
+
 [node name="UserInterface" type="CanvasLayer" parent="."]
 script = ExtResource( 6 )
 
@@ -616,6 +644,15 @@ stretch_mode = 1
 layer = 2
 visible = false
 
+[node name="SafeZone" type="Area2D" parent="."]
+position = Vector2( 126, 623 )
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeZone"]
+position = Vector2( 88.5, 41 )
+shape = SubResource( 23 )
+
 [connection signal="body_entered" from="DoorArea/LabDoorArea" to="DoorArea" method="_on_LabDoorArea_body_entered"]
 [connection signal="body_entered" from="DoorArea/ComputerDoorArea" to="DoorArea" method="_on_ComputerDoorArea_body_entered"]
 [connection signal="body_entered" from="DoorArea/MainDoorArea2" to="DoorArea" method="_on_MainDoorArea2_body_entered"]
@@ -623,5 +660,6 @@ visible = false
 [connection signal="body_entered" from="ComputerArea" to="ComputerArea" method="_on_ComputerArea_body_entered"]
 [connection signal="body_exited" from="ComputerArea" to="ComputerArea" method="_on_ComputerArea_body_exited"]
 
+[editable path="YSort/Rechael"]
 [editable path="YSort/Player"]
 [editable path="UserInterface/Computer"]

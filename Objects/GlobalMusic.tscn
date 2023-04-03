@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Import/Virtual World - Sci-fi Background Music   Documentary Music Instrumental (FREE DOWNLOAD).mp3" type="AudioStream" id=1]
+
+[node name="GlobalMusic" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true

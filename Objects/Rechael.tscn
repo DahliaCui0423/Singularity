@@ -1,0 +1,275 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Import/character sprite/Horror City - Sprite Pack 1/HC_Humans1A.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Rechael.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=7]
+resource_name = "Idle_down"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Idle_left"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 16 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Idle_right"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 28 ]
+}
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Walk_down"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 4 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Walk_left"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 16, 17, 16 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Walk_right"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 28, 29, 28 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Walk_up"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 39, 40, 41, 40 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "left_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 40 ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 6.5, 13 )
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "left_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=15]
+blend_point_0/node = SubResource( 11 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 12 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 13 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 14 )
+blend_point_3/pos = Vector2( 0, -1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Walk_right"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "Walk_down"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=20]
+blend_point_0/node = SubResource( 16 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 17 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 18 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 19 )
+blend_point_3/pos = Vector2( 0, 1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachine" id=23]
+states/Idle/node = SubResource( 15 )
+states/Idle/position = Vector2( 300.5, 79 )
+states/Walk/node = SubResource( 20 )
+states/Walk/position = Vector2( 491, 78.875 )
+transitions = [ "Idle", "Walk", SubResource( 21 ), "Walk", "Idle", SubResource( 22 ) ]
+start_node = "Idle"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=24]
+
+[sub_resource type="CircleShape2D" id=25]
+radius = 26.2488
+
+[sub_resource type="CircleShape2D" id=26]
+radius = 17.72
+
+[node name="Rechael" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 2 )
+dialogue = "res://Dialogues/Rechael.tres"
+speaker1 = "start"
+speaker2 = "_end"
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 12
+vframes = 8
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle_down"
+anims/Idle_down = SubResource( 7 )
+anims/Idle_left = SubResource( 8 )
+anims/Idle_right = SubResource( 9 )
+anims/RESET = SubResource( 1 )
+anims/Walk_down = SubResource( 2 )
+anims/Walk_left = SubResource( 3 )
+anims/Walk_right = SubResource( 4 )
+anims/Walk_up = SubResource( 5 )
+anims/left_up = SubResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 3 )
+shape = SubResource( 6 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 23 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 24 )
+parameters/Idle/blend_position = Vector2( 0, 0 )
+parameters/Walk/blend_position = Vector2( 0, 0 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 25 )
+
+[node name="SafeZoneDetect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeZoneDetect"]
+shape = SubResource( 26 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="area_entered" from="SafeZoneDetect" to="." method="_on_SafeZoneDetect_area_entered"]
+[connection signal="area_exited" from="SafeZoneDetect" to="." method="_on_SafeZoneDetect_area_exited"]

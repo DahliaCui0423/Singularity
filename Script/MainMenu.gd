@@ -22,10 +22,22 @@ func _on_StartButton_pressed():
 	return
 
 
-func _on_OptionButton_pressed():
+func _on_CreditButton_pressed():
 	soundEffectPlayer.stream = buttonClickSFX
 	soundEffectPlayer.play()
-
+	$TextureRect.visible = false
+	$StartButton.visible = false
+	$CreditButton.visible = false
+	$Credit.visible = true
 
 func _on_Timer_timeout():
 	get_tree().change_scene("res://Scenes/MainScene.tscn")
+
+
+func _on_CloseButton_pressed():
+	soundEffectPlayer.stream = buttonClickSFX
+	soundEffectPlayer.play()
+	$Credit.visible  = false
+	$TextureRect.visible = true
+	$StartButton.visible = true
+	$CreditButton.visible = true

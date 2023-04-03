@@ -1,16 +1,26 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Script/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Import/SingularityLogo.png" type="Texture" id=2]
 [ext_resource path="res://Import/StartBtnActive.png" type="Texture" id=3]
 [ext_resource path="res://Import/StartBtnHover.png" type="Texture" id=4]
 [ext_resource path="res://Import/StartBtnNormal.png" type="Texture" id=5]
-[ext_resource path="res://Import/OptionBtnHover.png" type="Texture" id=6]
-[ext_resource path="res://Import/OptionBtnNormal.png" type="Texture" id=7]
-[ext_resource path="res://Import/OptionBtnActive.png" type="Texture" id=8]
-[ext_resource path="res://Import/IS_StartButtonNormal.png" type="Texture" id=9]
-[ext_resource path="res://Import/IS_StartButtonHover.png" type="Texture" id=10]
-[ext_resource path="res://Import/IS_StartButtonPressed2.png" type="Texture" id=11]
+[ext_resource path="res://Import/CreditButtonHover.png" type="Texture" id=6]
+[ext_resource path="res://Import/CreditButtonPressed.png" type="Texture" id=7]
+[ext_resource path="res://Import/CreditButtonNormal.png" type="Texture" id=8]
+[ext_resource path="res://Import/Fonts/Play-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Import/XPressed.png" type="Texture" id=10]
+[ext_resource path="res://Import/Fonts/MainMenu.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Import/XHover.png" type="Texture" id=12]
+[ext_resource path="res://Import/XNormal.png" type="Texture" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = ExtResource( 9 )
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -48,7 +58,7 @@ texture_pressed = ExtResource( 3 )
 texture_hover = ExtResource( 4 )
 expand = true
 
-[node name="OptionButton" type="TextureButton" parent="."]
+[node name="CreditButton" type="TextureButton" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -57,23 +67,9 @@ margin_left = -205.5
 margin_top = -230.0
 margin_right = 205.5
 margin_bottom = -114.0
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 6 )
-expand = true
-
-[node name="StartButton2" type="TextureButton" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 359.0
-margin_top = -396.0
-margin_right = 770.0
-margin_bottom = -280.0
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 11 )
-texture_hover = ExtResource( 10 )
 expand = true
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
@@ -83,7 +79,104 @@ volume_db = 20.0
 wait_time = 0.09
 one_shot = true
 
+[node name="Credit" type="TextureRect" parent="."]
+visible = false
+margin_left = 716.0
+margin_top = 90.0
+margin_right = 1212.0
+margin_bottom = 229.0
+texture = ExtResource( 8 )
+expand = true
+
+[node name="TileMap" type="Label" parent="Credit"]
+margin_left = 151.0
+margin_top = 422.0
+margin_right = 340.0
+margin_bottom = 478.0
+custom_colors/font_color = Color( 0.262745, 1, 1, 1 )
+custom_fonts/font = ExtResource( 11 )
+text = "SPRITES"
+align = 1
+valign = 1
+
+[node name="TileMap3" type="Label" parent="Credit/TileMap"]
+margin_left = -678.0
+margin_top = 150.0
+margin_right = 918.0
+margin_bottom = 206.0
+custom_colors/font_color = Color( 0.262745, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "ItemIcons:  https://kazzter-k.itch.io/sci-fi-icon-pack"
+align = 1
+
+[node name="TileMap2" type="Label" parent="Credit/TileMap"]
+margin_left = -661.0
+margin_top = 87.0
+margin_right = 935.0
+margin_bottom = 143.0
+custom_colors/font_color = Color( 0.262745, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "CyberPop-Interior Tiles:  https://malibudarby.itch.io/cyberpop-interior-tiles"
+align = 1
+
+[node name="TileMap4" type="Label" parent="Credit/TileMap"]
+margin_left = -679.0
+margin_top = 213.0
+margin_right = 917.0
+margin_bottom = 269.0
+custom_colors/font_color = Color( 0.262745, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Horror City-Sprite Pack #1: https://malibudarby.itch.io/horror-city-sprite-pack-1"
+align = 1
+
+[node name="TileMap5" type="Label" parent="Credit/TileMap"]
+margin_left = -680.0
+margin_top = 273.0
+margin_right = 916.0
+margin_bottom = 329.0
+custom_colors/font_color = Color( 0.262745, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Interface Assets: https://wenrexa.itch.io/holoui"
+align = 1
+
+[node name="TileMap6" type="Label" parent="Credit/TileMap"]
+margin_left = -55.0
+margin_top = -264.0
+margin_right = 237.0
+margin_bottom = -208.0
+custom_colors/font_color = Color( 0.262745, 1, 1, 1 )
+custom_fonts/font = ExtResource( 11 )
+text = "GAME DESIGN"
+align = 1
+valign = 1
+
+[node name="TileMap3" type="Label" parent="Credit/TileMap/TileMap6"]
+margin_left = -645.0
+margin_top = 78.0
+margin_right = 951.0
+margin_bottom = 134.0
+custom_colors/font_color = Color( 0.262745, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Programming: Wenyue Cui
+GUI: Wenyue Cui
+Mechanic: Wenyue Cui"
+align = 1
+
+[node name="CloseButton" type="TextureButton" parent="Credit"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -53.0
+margin_top = 671.0
+margin_right = 45.0
+margin_bottom = 769.0
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 12 )
+expand = true
+
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
-[connection signal="pressed" from="OptionButton" to="." method="_on_OptionButton_pressed"]
-[connection signal="pressed" from="StartButton2" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CreditButton" to="." method="_on_CreditButton_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Credit/CloseButton" to="." method="_on_CloseButton_pressed"]
